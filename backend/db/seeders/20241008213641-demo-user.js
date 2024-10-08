@@ -12,11 +12,11 @@ if (process.env.NODE_ENV === 'production') {
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    options.tableName = 'Users';
-    await queryInterface.bulkInsert(options,[
+    
+    await User.bulkCreate([
       {
         firstName: 'user1first',
-        lastName: 'user1last',
+        lastName: 'user1last', 
         email: 'demo@user.io',
         username: 'Demo-lition',
         hashedPassword: bcrypt.hashSync('password'),
@@ -40,6 +40,8 @@ module.exports = {
 
   async down (queryInterface, Sequelize) {
     options.tableName = 'Users';
-    await queryInterface.bulkDelete(options, null, {})
+    await queryInterface.bulkDelete(options, null, {
+      username: { [Op.in]: ['Demo-lition', 'FakeUser1', 'FakeUser2'] }
+  }, {});
   }
 };
