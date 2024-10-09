@@ -4,8 +4,10 @@ const apiRouter = require("./api/index");
 
 router.use("/api", apiRouter);
 
-router.get("/", (res, req) => {
-  console.log("Hello World");
+router.get("/", (req, res) => {
+  res.send({
+    message: "Hello World!",
+  });
 })
 
 router.get("/api/csrf/restore", (req, res) => {
