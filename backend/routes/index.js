@@ -4,6 +4,7 @@ const apiRouter = require("./api/index");
 
 router.use("/api", apiRouter);
 
+//tests main route so Render doesn't give error
 router.get("/", (req, res) => {
   res.send({
     message: "Hello World!",
