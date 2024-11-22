@@ -51,9 +51,6 @@ module.exports = (sequelize, DataTypes) => {
         len: [60, 60],
       }
     },
-    isOwner: {
-      type: DataTypes.BOOLEAN,
-    },
   }, 
   {
     sequelize,
